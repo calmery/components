@@ -98,5 +98,6 @@
     "lint:prettier": "prettier --write \"**/*.{js,json,jsx,md,yml}\"",
     "test": "jest --coverage"
   },
+  "sideEffects": false,
   "version": "0.0.0"
 }
