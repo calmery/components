@@ -85,6 +85,9 @@
       }
     }
   },
+  "files": [
+    "build"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
@@ -110,6 +113,7 @@
       "npm run lint:eslint"
     ]
   },
+  "main": "build",
   "peerDependencies": {
     "react": "16.13.1",
     "react-dom": "16.13.1"
@@ -125,6 +129,7 @@
     "lint": "npm-run-all lint:*",
     "lint:eslint": "eslint --ignore-path .gitignore --fix . --ext .ts --ext .tsx",
     "lint:prettier": "prettier --write \"**/*.{js,json,jsx,md,yml}\"",
+    "prepublishOnly": "npm run build",
     "start": "start-storybook -p 3000",
     "test": "jest --coverage"
   },
