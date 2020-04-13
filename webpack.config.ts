@@ -60,6 +60,10 @@ export default merge(
           test: /\.tsx?$/,
           loader: "ts-loader",
         },
+        {
+          test: /\.svg$/,
+          loader: "@svgr/webpack",
+        },
       ],
     },
     output: {
