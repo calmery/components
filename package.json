@@ -1,15 +1,6 @@
 {
   "author": "calmery <contact@calmery.me>",
   "description": "A React component library for calmery-chan :books:",
-  "engines": {
-    "node": ">=12.13.0 <13.0.0",
-    "npm": ">=6.12.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/calmery-chan/components.git"
-  },
-  "version": "0.0.0",
   "devDependencies": {
     "@types/jest": "25.2.1",
     "@typescript-eslint/eslint-plugin": "2.27.0",
@@ -24,6 +15,10 @@
     "prettier": "2.0.4",
     "ts-jest": "25.3.1",
     "typescript": "3.8.3"
+  },
+  "engines": {
+    "node": ">=12.13.0 <13.0.0",
+    "npm": ">=6.12.0"
   },
   "eslintConfig": {
     "env": {
@@ -67,9 +62,14 @@
       "^.+\\.tsx?$": "ts-jest"
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/calmery-chan/components.git"
+  },
   "scripts": {
     "lint": "npm-run-all lint:*",
     "lint:eslint": "eslint --ignore-path .gitignore --fix . --ext .ts --ext .tsx",
     "lint:prettier": "prettier --write \"**/*.{js,json,jsx,md,yml}\""
-  }
+  },
+  "version": "0.0.0"
 }
