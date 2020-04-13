@@ -129,6 +129,7 @@
     ]
   },
   "main": "build",
+  "name": "@calmery-chan/components",
   "peerDependencies": {
     "react": "16.13.1",
     "react-dom": "16.13.1"
