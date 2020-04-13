@@ -21,25 +21,15 @@ const production: Configuration = {
       new TerserPlugin({
         extractComments: false,
         terserOptions: {
-          compress: {
-            comparisons: false,
-            inline: 2,
-            warnings: false,
-          },
           // eslint-disable-next-line @typescript-eslint/camelcase
           keep_classnames: false,
-          // eslint-disable-next-line @typescript-eslint/camelcase
-          keep_fnames: false,
           mangle: {
+            // Reference: https://github.com/terser/terser#mangle-options
             safari10: true,
           },
           output: {
-            ecma: 5,
             // eslint-disable-next-line @typescript-eslint/camelcase
             ascii_only: true,
-          },
-          parse: {
-            ecma: 8,
           },
         },
       }),
