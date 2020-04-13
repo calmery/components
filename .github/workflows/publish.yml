@@ -6,14 +6,20 @@ on:
       - master
 
 jobs:
-  build:
+  publish:
+    env:
+      GIT_AUTHOR_EMAIL: ${{ secrets.GIT_AUTHOR_EMAIL }}
+      GIT_AUTHOR_NAME: ${{ secrets.GIT_AUTHOR_NAME }}
+      GIT_COMMITTER_EMAIL: ${{ secrets.GIT_COMMITTER_EMAIL }}
+      GIT_COMMITTER_NAME: ${{ secrets.GIT_COMMITTER_NAME }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     strategy:
       matrix:
         node-version: [12.16.2]
         npm-version: [6.14.4]
-        os: [windows-latest, macOS-latest, ubuntu-latest]
 
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v1
@@ -23,65 +29,6 @@ jobs:
       - run: npm i npm@${{ matrix.npm-version }} -g
       - run: npm ci
       - run: npm run build
-
-  lint:
-    strategy:
-      matrix:
-        node-version: [12.16.2]
-        npm-version: [6.14.4]
-        os: [ubuntu-latest]
-
-    runs-on: ${{ matrix.os }}
-
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm i npm@${{ matrix.npm-version }} -g
-      - run: npm ci
       - run: npm run lint
-
-  publish:
-    env:
-      GIT_AUTHOR_EMAIL: ${{ secrets.GIT_AUTHOR_EMAIL }}
-      GIT_AUTHOR_NAME: ${{ secrets.GIT_AUTHOR_NAME }}
-      GIT_COMMITTER_EMAIL: ${{ secrets.GIT_COMMITTER_EMAIL }}
-      GIT_COMMITTER_NAME: ${{ secrets.GIT_COMMITTER_NAME }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-    needs: [build, lint, test]
-    strategy:
-      matrix:
-        node-version: [12.16.2]
-        npm-version: [6.14.4]
-        os: [ubuntu-latest]
-
-    runs-on: ${{ matrix.os }}
-
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm i npm@${{ matrix.npm-version }} -g
-      - run: npm ci
-      - run: npx semantic-release
-
-  test:
-    strategy:
-      matrix:
-        node-version: [12.16.2]
-        npm-version: [6.14.4]
-        os: [ubuntu-latest]
-
-    runs-on: ${{ matrix.os }}
-
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm i npm@${{ matrix.npm-version }} -g
-      - run: npm ci
       - run: npm test
+      - run: npx semantic-release
