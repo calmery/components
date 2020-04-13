@@ -1,7 +1,9 @@
 version: 1
 
 update_configs:
-  - package_manager: "javascript"
-    directory: "/"
-    update_schedule: "live"
+  - directory: "/"
+    package_manager: "javascript"
     target_branch: "master"
+    update_schedule: "daily"
+    commit_message:
+      prefix: "chore"
