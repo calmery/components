@@ -69,6 +69,7 @@
       "^.+\\.tsx?$": "ts-jest"
     }
   },
+  "license": "MIT",
   "lint-staged": {
     "**/*.{js,json,jsx,md,yml}": [
       "npm run lint:prettier"
