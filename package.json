@@ -1,0 +1,13 @@
+{
+  "author": "calmery <contact@calmery.me>",
+  "description": "A React component library for calmery-chan :books:",
+  "engines": {
+    "node": ">=12.13.0 <13.0.0",
+    "npm": ">=6.12.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/calmery-chan/components.git"
+  },
+  "version": "0.0.0"
+}
