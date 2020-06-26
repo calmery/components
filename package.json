@@ -48,7 +48,7 @@
     "react-test-renderer": "16.13.1",
     "rimraf": "3.0.2",
     "run-script-os": "1.1.1",
-    "semantic-release": "17.0.4",
+    "semantic-release": "17.1.1",
     "terser-webpack-plugin": "2.3.5",
     "ts-jest": "25.3.1",
     "ts-loader": "6.2.2",
